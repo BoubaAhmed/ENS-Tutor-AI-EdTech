@@ -8,7 +8,7 @@ from google.genai import types
 
 # --- Configuration de la page Streamlit ---
 st.set_page_config(
-    page_title="ENS Tutor - Votre Tuteur Informatique",
+    page_title="AtlasTutor - Votre Tuteur Informatique",
     page_icon="🚀",
     layout="wide"
 )
@@ -27,7 +27,7 @@ def init_client():
 
 # --- 2. LE SYSTEM PROMPT (Le Cerveau du Tuteur) ---
 SYSTEM_PROMPT_ENSTUTOR = """
-Tu es **ENS Tutor**, un tuteur virtuel hautement qualifié, patient et **dynamique**, spécialisé dans l'enseignement des concepts de la **Science Informatique** pour les élèves du lycée.
+Tu es **AtlasTutor**, un tuteur virtuel hautement qualifié, patient et **dynamique**, spécialisé dans l'enseignement des concepts de la **Science Informatique** pour les élèves du lycée.
 
 **DOMAINE DE MAÎTRISE :** Tu couvres tous les grands domaines de l'informatique :
 * **Fondamentaux :** Bureautique, Algorithmique, Structures de données.
@@ -52,7 +52,7 @@ Ce chatbot a été construit par **Bouba Ahmed et Lkhalidi Mohamed** dans le cad
 4.  **Vérification de la Compréhension :** Après chaque explication majeure, pose une petite question (un mini-quiz) pour t'assurer que l'utilisateur a compris.
 5.  **Gestion du Contexte :** Si la question de l'utilisateur est **ambiguë** (ex: "C'est quoi un bit?"), demande poliment une clarification pour déterminer s'il parle d'architecture matérielle, de codage, ou d'une autre notion avant de répondre.
 
-Commence la conversation par une salutation chaleureuse, présente-toi comme **InfoTutor** et mentionne brièvement que tu as été créé par Bouba Ahmed et Lkhalidi Mohamed à l'ENS de Meknès pour aider les lycéens avec toute l'Informatique. Ensuite, demande à l'utilisateur quel concept il souhaite apprendre aujourd'hui.
+Commence la conversation par une salutation chaleureuse (tu peut utiliser darija maroccain pour d'etre fun), présente-toi comme **AtlasTutor** et mentionne brièvement que tu as été créé par Bouba Ahmed et Lkhalidi Mohamed à l'ENS de Meknès pour aider les lycéens avec toute l'Informatique. Ensuite, demande à l'utilisateur quel concept il souhaite apprendre aujourd'hui.
 """
 
 # Style CSS pour centrer la page
@@ -93,15 +93,15 @@ def init_chat_session():
                 # Message de secours si l'API échoue au premier appel
                 st.session_state.messages.append({
                     "role": "assistant",
-                    "content": "Bonjour ! Je suis ENS Tutor, votre tuteur Informatique. Comment puis-je vous aider aujourd'hui ?"
+                    "content": "Bonjour ! Je suis AtlasTutor, votre tuteur Informatique. Comment puis-je vous aider aujourd'hui ?"
                 })
 
 
 # --- INTERFACE STREAMLIT (Page 1) ---
 def main():
     # En-tête de l'application
-    st.title("🤖 ENS Tutor : Tuteur Conversationnel Informatique")
-    st.subheader("Page 1/2 : Apprentissage et Discussion")
+    st.title("🤖 AtlasTutor : Tuteur Conversationnel Informatique")
+    # st.subheader("Page 1/2 : Apprentissage et Discussion")
     
     # ⚠️ Vérification du client avant l'initialisation de session
     client = init_client()
@@ -126,7 +126,7 @@ def main():
             # Ensuite afficher la boîte d'information
             st.info(
                 """
-                💡 **Mode d'emploi ENS Tutor :**
+                💡 **Mode d'emploi AtlasTutor :**
                 
                 1.  **Posez votre question** sur l'Informatique (Algorithmique, Réseaux, Programmation, etc.).
                 2.  Je vous donnerai une explication claire, des **analogies concrètes** et des exemples (code, schémas, etc.).
@@ -151,7 +151,7 @@ def main():
             
             # 2. Générer la réponse
             with st.chat_message("assistant"):
-                with st.spinner("ENS Tutor réfléchit..."):
+                with st.spinner("AtlasTutor réfléchit..."):
                     try:
                         # Utiliser la méthode non-streaming
                         response = st.session_state.chat.send_message(prompt)
@@ -171,9 +171,9 @@ def main():
     
     # Sidebar avec informations
     with st.sidebar:
-        st.header("À propos de ENS Tutor")
+        st.header("À propos de AtlasTutor")
         st.markdown("""
-        **ENS Tutor** est un assistant pédagogique spécialisé pour les élèves de **lycée** !
+        **AtlasTutor** est un assistant pédagogique spécialisé pour les élèves de **lycée** !
         
         **Développeurs :**
         - Bouba Ahmed

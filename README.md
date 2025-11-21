@@ -4,7 +4,7 @@
 
 Ce projet est une solution de **Technologie Éducative (EdTech)** visant à démontrer l'efficacité des agents conversationnels basés sur l'Intelligence Artificielle (Google Gemini LLM) pour le **tutorat personnalisé**.
 
-**ENS Tutor** couvre l'intégralité du programme d'Informatique du lycée, incluant :
+**AtlasTutor** couvre l'intégralité du programme d'Informatique du lycée, incluant :
 * **Algorithmique et Structures de données**
 * **Programmation** (Python, HTML, CSS, JavaScript de base)
 * **Réseaux et Internet** (Protocoles, routage)
@@ -32,7 +32,7 @@ Afin d'explorer différentes approches d'IA conversationnelle pour l'éducation,
 | Fichier/Dossier | Nom de la Version | Technologie Clé | Objectif Pédagogique et Portée |
 | :--- | :--- | :--- | :--- |
 | `pytutor.py` | **Version 1 (Tuteur Python)** | Google Gemini API (Cloud) | Fournit une expérience de tutorat exclusivement centrée sur le langage **Python** (prototype initial). |
-| `ChatBot_with_Sandbox.py` & `pages/` | **Version 2 (ENS Tutor Complet)** | Gemini API (Cloud) + Streamlit `exec()` | **L'agent final, multidisciplinaire.** Couvre toute la **Science Informatique**. Intègre le **Code Sandbox** (`pages/1_Code_Sandbox.py`) pour l'exécution et l'analyse pédagogique des résultats du code. |
+| `ChatBot_with_Sandbox.py` & `pages/` | **Version 2 (AtlasTutor Complet)** | Gemini API (Cloud) + Streamlit `exec()` | **L'agent final, multidisciplinaire.** Couvre toute la **Science Informatique**. Intègre le **Code Sandbox** (`pages/1_Code_Sandbox.py`) pour l'exécution et l'analyse pédagogique des résultats du code. |
 | `Ollama_Bot.py` | **Version 3 (Expérimentale/LLM Local)** | Modèle Llama via Ollama (Local) | Démontre la faisabilité du tutorat en utilisant un **modèle de langage exécuté localement**. Répond aux enjeux de **confidentialité** et d'**accessibilité** dans des environnements scolaires avec des contraintes de connectivité. |
 
 ### Technologies et Dépendances
@@ -68,7 +68,7 @@ Configurer la Clé Gemini :
 ```Bash
 export GEMINI_API_KEY='VOTRE_CLÉ_API'
 ```
-Lancer l'Application Principale (ENS Tutor Complet) :
+Lancer l'Application Principale (AtlasTutor Complet) :
 
 ```Bash
 streamlit run ChatBot_with_Sandbox.py
