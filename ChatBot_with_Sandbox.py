@@ -120,19 +120,8 @@ def main():
         if len(st.session_state.messages) <= 1 and any("Bienvenue" in msg['content'] for msg in st.session_state.messages):
             # Afficher le message de bienvenue du bot en premier
             if st.session_state.messages:
-                 with st.chat_message(st.session_state.messages[0]["role"]):
+                with st.chat_message(st.session_state.messages[0]["role"]):
                     st.markdown(st.session_state.messages[0]["content"])
-
-            # Ensuite afficher la boîte d'information
-            st.info(
-                """
-                💡 **Mode d'emploi AtlasTutor :**
-                
-                1.  **Posez votre question** sur l'Informatique (Algorithmique, Réseaux, Programmation, etc.).
-                2.  Je vous donnerai une explication claire, des **analogies concrètes** et des exemples (code, schémas, etc.).
-                3.  Pour **tester votre code** (Python uniquement), utilisez la page **"Code Sandbox"** dans la barre latérale !
-                """, icon="🚀"
-            )
 
         # --- Sinon afficher la conversation complète ---
         else:
@@ -143,7 +132,7 @@ def main():
     
     # Zone de saisie utilisateur
     if "chat" in st.session_state:
-        if prompt := st.chat_input("Posez votre question sur Python..."):
+        if prompt := st.chat_input("Posez votre question sur l'Informatique..."):
             # 1. Ajouter le message de l'utilisateur
             st.session_state.messages.append({"role": "user", "content": prompt})
             with st.chat_message("user"):
@@ -171,6 +160,7 @@ def main():
     
     # Sidebar avec informations
     with st.sidebar:
+        # st.image("logoens.png", width=150)
         st.header("À propos de AtlasTutor")
         st.markdown("""
         **AtlasTutor** est un assistant pédagogique spécialisé pour les élèves de **lycée** !
@@ -184,7 +174,7 @@ def main():
         """)
         
         st.markdown("---")
-        if st.button("Nouvelle Conversation 🔄"):
+        if st.button("Nouvelle Conversation"):
             # Réinitialisation propre de la session
             for key in list(st.session_state.keys()):
                 if key != 'client_error': # Garder l'erreur client si elle existe
