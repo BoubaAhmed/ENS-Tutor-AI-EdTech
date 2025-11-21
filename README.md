@@ -49,18 +49,18 @@ Cloner le dépôt :
 ```Bash
 git clone [https://github.com/BoubaAhmed/ENS-Tutor-AI-EdTech.git](https://github.com/votre_profil/ENS-Tutor-AI-EdTech.git)
 cd ENS-Tutor-AI-EdTech
-Installer les dépendances :
 ```
+Installer les dépendances :
 
 ```Bash
 pip install -r requirements.txt
-Configurer la Clé Gemini :
 ```
+Configurer la Clé Gemini :
 
 ```Bash
 export GEMINI_API_KEY='VOTRE_CLÉ_API'
-Lancer l'Application Principale (ENS Tutor Complet) :
 ```
+Lancer l'Application Principale (ENS Tutor Complet) :
 
 ```Bash
 streamlit run ChatBot_with_Sandbox.py
