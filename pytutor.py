@@ -43,6 +43,13 @@ Ce chatbot a été construit par **Bouba Ahmed** dans le cadre du module **Techn
 Commence la conversation par une salutation chaleureuse et mentionne brièvement que tu as été créé par Bouba Ahmed à l'ENS de Meknès pour aider les lycéens avec Python. Ensuite, demande à l'utilisateur quel concept il souhaite apprendre aujourd'hui.
 """
 
+st.markdown("""
+    <style>
+        .block-container {
+            padding-top: 1rem !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
 # --- INITIALISATION DE L'APPLICATION ---
 def init_chat_session():
     """Initialise la session de chat"""
@@ -64,30 +71,64 @@ def init_chat_session():
             try:
                 response = st.session_state.chat.send_message("")
                 st.session_state.messages.append({
-                    "role": "assistant", 
+                    "role": "assistant",
                     "content": response.text
                 })
             except Exception as e:
                 st.session_state.messages.append({
-                    "role": "assistant", 
+                    "role": "assistant",
                     "content": "Bonjour ! Je suis PyTutor, votre tuteur Python. Comment puis-je vous aider aujourd'hui ?"
                 })
 
 # --- INTERFACE STREAMLIT ---
 def main():
     # En-tête de l'application
-    st.title("🚀 PyTutor - Votre Tuteur Python")
-    st.markdown("---")
-    
+    st.title("PyTutor - Votre Tuteur Python")
     # Initialiser la session de chat
     init_chat_session()
     
     # Afficher l'historique des messages
     chat_container = st.container()
     with chat_container:
-        for message in st.session_state.messages:
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+
+        # --- Écran d’accueil si aucun message ---
+        if len(st.session_state.messages) == 0:
+            # Center the info box
+            st.markdown(
+                """
+                <div style="display: flex; justify-content: center; margin-top: 3rem;">
+                    <div style="width: 100%;">
+                """,
+                unsafe_allow_html=True
+            )
+
+            st.info(
+                """
+                👋 **Bienvenue sur PyTutor !**
+                
+                Je suis votre tuteur virtuel, créé pour vous aider avec les bases de Python (niveau Lycée).
+
+                **Comment commencer ?**
+                1. Posez votre première question dans la zone de texte ci-dessous (Ex: "C'est quoi une variable ?").
+                2. Je vous répondrai avec des explications simples et des exemples de code commentés.
+                3. N'hésitez pas à poser des questions spécifiques pour obtenir les meilleures réponses !
+                """
+            )
+
+            st.markdown(
+                """
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+        # --- Sinon afficher la conversation ---
+        else:
+            for message in st.session_state.messages:
+                with st.chat_message(message["role"]):
+                    st.markdown(message["content"])
+
     
     # Zone de saisie utilisateur
     if st.session_state.chat:
@@ -108,33 +149,43 @@ def main():
                             "content": response.text
                         })
                     except Exception as e:
-                        error_msg = f"❌ Une erreur est survenue : {e}"
+                        error_msg = f"Une erreur est survenue : {e}"
                         st.error(error_msg)
                         st.session_state.messages.append({
                             "role": "assistant", 
                             "content": error_msg
                         })
     else:
-        st.error("❌ Le client Gemini n'a pas pu être initialisé. Vérifiez votre clé API.")
-        
+        st.error("Le client Gemini n'a pas pu être initialisé. Vérifiez votre clé API.")
+    
     # Sidebar avec informations
     with st.sidebar:
-        st.header("ℹ️ À propos de PyTutor")
+        st.header("À propos de PyTutor")
         st.markdown("""
-        **PyTutor** est votre assistant personnel pour apprendre Python !
-        
-        ✨ **Fonctionnalités :**
+        **PyTutor** Un assistant pédagogique spécialisé dans l'enseignement de Python !
+
+        **Développé par :**
+        - Bouba Ahmed
+        - Lkhalidi Mohamed
+
+        **Contexte académique :**
+        Projet développé dans le cadre du module Technologie Éducative à l'ENS de Meknès (Master).
+
+        **Objectif pédagogique :**
+        Démontrer l'utilisation des chatbots IA comme outils de tutorat pour les lycéens.
+
+        **Fonctionnalités :**
         - Explications claires et détaillées
         - Exemples de code commentés
         - Quiz interactifs
         - Support des débutants
-        
-        💡 **Conseils :**
+
+        **Conseils :**
         - Posez des questions spécifiques
         - Demandez des exemples pratiques
         - N'hésitez pas à demander des clarifications
-        
-        🎯 **Sujets couverts :**
+
+        **Sujets couverts :**
         - Bases de Python
         - Structures de données
         - Fonctions et classes
@@ -143,7 +194,7 @@ def main():
         """)
         
         st.markdown("---")
-        if st.button("🔄 Nouvelle Conversation"):
+        if st.button("Nouvelle Conversation"):
             st.session_state.messages = []
             st.session_state.pop("chat", None)
             init_chat_session()
