@@ -13,7 +13,15 @@ Ce projet est une solution de **Technologie Éducative (EdTech)** visant à dém
 
 ### Contexte Académique
 
-Ce dépôt a été développé par **Bouba Ahmed** et **Lkhalidi Mohamed** dans le cadre du Master **Technologie Éducative** à l'**ENS de Meknès**.
+Ce dépôt a été développé par **Bouba Ahmed** dans le cadre du Master **Technologie Éducative** à l'**ENS de Meknès**.
+
+### Objectifs Pédagogiques et Innovation
+
+L'ambition de ce projet dépasse la simple réponse aux questions. Il vise à démontrer plusieurs thèses cruciales en EdTech :
+
+* **Personnalisation Échelle :** Utilisation du **Prompt Engineering** pour maintenir un rôle de mentor rigoureux et adapter le niveau de difficulté/d'analogie au public Lycée.
+* **Rétroaction Formative :** Le **Code Sandbox** (Version 2) permet au LLM de fournir une analyse diagnostique sur le code de l'élève, se concentrant sur le *pourquoi* de l'erreur plutôt que sur la simple correction.
+* **Accessibilité et Confidentialité :** L'expérimentation avec **Ollama (Version 3)** explore l'exécution des LLM en local, garantissant l'accès au tutorat sans connexion constante et protégeant la confidentialité des données des élèves.
 
 ---
 
