@@ -47,7 +47,7 @@ streamlit
 Cloner le dépôt :
 
 ```Bash
-git clone [https://github.com/BoubaAhmed/ENS-Tutor-AI-EdTech.git](https://github.com/votre_profil/ENS-Tutor-AI-EdTech.git)
+git clone [https://github.com/BoubaAhmed/ENS-Tutor-AI-EdTech.git](https://github.com/BoubaAhmed/ENS-Tutor-AI-EdTech.git)
 cd ENS-Tutor-AI-EdTech
 ```
 Installer les dépendances :
