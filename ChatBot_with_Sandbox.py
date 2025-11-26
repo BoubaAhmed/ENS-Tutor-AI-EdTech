@@ -18,6 +18,12 @@ st.set_page_config(
 def init_client():
     """Initialise le client Gemini une seule fois"""
     try:
+        # api_key = st.secrets.get("GOOGLE_API_KEY", None)
+
+        # if not api_key:
+        #     raise ValueError("Aucune clé API trouvée dans st.secrets['GOOGLE_API_KEY']")
+
+        # client = genai.Client(api_key=api_key)
         client = genai.Client()
         return client
     except Exception as e:
@@ -157,7 +163,7 @@ def main():
                             "role": "assistant",
                             "content": error_msg
                         })
-    
+
     # Sidebar avec informations
     with st.sidebar:
         # st.image("logoens.png", width=150)
