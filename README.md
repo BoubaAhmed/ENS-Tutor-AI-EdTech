@@ -66,7 +66,7 @@ pip install -r requirements.txt
 Configurer la Clé Gemini :
 
 ```Bash
-export GEMINI_API_KEY='VOTRE_CLÉ_API'
+set GEMINI_API_KEY='VOTRE_CLÉ_API'
 ```
 Lancer l'Application Principale (AtlasTutor Complet) :
 
